@@ -3,9 +3,17 @@
  <h5>您的用户余额是<span id="amount">&&&amount&&&</span></h5>
  <button id ="button">打钱</button>
  <script>
+	 window.xxx = function(result){
+		 if(result === 'success'){
+			 amount.innerText = amount.innerText -1
+		 }else{
+
+		 }
+	 }
 	 button.addEventListener('click',(e)=>{
+
 		 let script = document.createElement('script')
-		 script.src = '/pay'
+		 script.src = 'http://jack.com:8002/pay'
                  document.body.appendChild(script)
 		 script.onload = function(e){
 			 e.currentTarget.remove()
@@ -14,7 +22,6 @@
 		 	alert('fail')
 			e.currentTarget.remove()
 		 }
-
 //		 let image = document.createElement('img')
 //		 image.src = "/pay"
 //		 image.onload = function(){
