@@ -41,9 +41,9 @@ var server = http.createServer(function(request, response){
 	  var newAmount = amount - 1
 	  if(Math.random()>0.7){
 	     fs.writeFileSync('./db',newAmount)
-	     response.setHeader('Content-Type','image/jpg')
+	     response.setHeader('Content-Type','application/javascript')
 	     response.statusCode = 200
-	     response.write(fs.readFileSync('./dog.jpg'))
+	     response.write('alert("我是pay")')
 
 	  }else{
 	     response.statusCode = 400
@@ -54,7 +54,7 @@ var server = http.createServer(function(request, response){
     response.statusCode = 404
     response.setHeader('Content-Type','text/html;charset=utf8')
     response.write('找不到对应路径，你需要自行修改serve.js')
-    reponse.end()
+    response.end()
   } 
 
 
