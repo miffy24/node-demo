@@ -39,16 +39,11 @@ var server = http.createServer(function(request, response){
   }else if(path === '/pay'){
 	  var amount = fs.readFileSync('./db','utf8')
 	  var newAmount = amount - 1
-	  if(Math.random()>0.7){
-	     fs.writeFileSync('./db',newAmount)
-	     response.setHeader('Content-Type','application/javascript')
-	     response.statusCode = 200
-	     response.write('alert("我是pay")')
+	  fs.writeFileSync('./db',newAmount)
+	  response.setHeader('Content-Type','application/javascript')
+	  response.statusCode = 200
+	  response.write(' amount.innerText = amount.innerText - 1 ')
 
-	  }else{
-	     response.statusCode = 400
-	     response.write('fail')
-	  }
 	  response.end()
   }else{
     response.statusCode = 404
